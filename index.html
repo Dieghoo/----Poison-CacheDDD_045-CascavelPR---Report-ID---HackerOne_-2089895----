@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💀💀💀---Poison-Cache DDD_045 - Cascavel PR---💀💀💀</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --border-color: #30363d;
+            --code-bg: #161b22;
+            --success: #2ea043;
+            --danger: #da3633;
+            --warning: #d29922;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .report-meta {
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+
+        .report-id {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-family: monospace;
+        }
+
+        .status-badge {
+            background-color: var(--success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85em;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .section {
+            background: #161b22;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        h1, h2, h3 { color: #ffffff; margin-top: 0; }
+        h1 { font-size: 2em; margin-bottom: 10px; }
+        h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+
+        pre {
+            background-color: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+        
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            color: #ff7b72; 
+        }
+
+        .media-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #000;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+        }
+
+        img, video { max-width: 100%; height: auto; border-radius: 4px; }
+
+        .download-zone {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .download-btn {
+            background: linear-gradient(180deg, #238636, #2ea043);
+            color: white;
+            border: 1px solid rgba(27,31,35,0.15);
+            padding: 12px 24px;
+            font-size: 1.1em;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -26px;
+            top: 5px;
+        }
+
+        .footer-note {
+            font-size: 0.8em;
+            color: #8b949e;
+            text-align: center;
+            margin-top: 50px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <div class="report-meta">
+                REPORT <span class="report-id">#HASCKER-0001</span>
+                <span class="status-badge">RESOLVED</span>
+            </div>
+            <h1 id="title-text">Cache Poisoning via Formaction</h1>
+            <div class="report-meta">
+                Researcher: <strong>e5p3ctr0x96</strong> | Severity: <span style="color:var(--warning)">Medium/High</span>
+            </div>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button id="btn-pt" class="lang-btn" onclick="setLang('pt')">PT</button>
+            <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+        </div>
+    </header>
+
+    <div class="section">
+        <h2 id="summary-title">Summary</h2>
+        <p id="summary-text">
+            I do not remember the exact endpoint subdomain host, but you can always watch the video and analyze it manually. By issuing a GET request with a modified <code>formaction</code> parameter, attackers can inject malicious JavaScript code to obtain user data.
+        </p>
+        
+        <div class="media-container">
+            <video controls width="100%">
+                <source src="assets/PoC-CACHE-POISONING-SummarySummary_0045-Cascavel-PR-4machines.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            <p style="font-size:0.8em; color:#666;">*Video Evidence*</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 id="steps-title">Steps To Reproduce</h2>
+        <div id="steps-text">
+            <p>1. Issue a GET request to the target URL.</p>
+            <p>2. You should see a Pop-up containing the current session cookies.</p>
+        </div>
+
+        <div class="media-container">
+            <img src="assets/image-01.png" alt="PoC Evidence" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400/161b22/58a6ff?text=Image+Not+Found'">
+        </div>
+
+        <h3>Request Payload (PoC)</h3>
+        <pre><code class="language-http">GET /fr/191/aliments/alimentation-pour-chat?pettype=cat&formaction=\0&range=pettype&ldwkG=1 HTTP/1.1
+Host: ██████
+Accept-Encoding: gzip, deflate, ldwkG
+Formaction: new4url" onsubmit=confirm(document.cookie)>
+Origin: ██████████</code></pre>
+        
+        <p id="cloaking-text" style="margin-top:15px; font-style: italic;">
+            Note on cloaking: The payload is hidden within request headers to poison the cache, then exploited via a normal URL.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 id="impact-title">Impact</h2>
+        <p id="impact-text">
+            Attackers can make use of this technique to send the link to victims and steal their session. I believe there is a higher impact due to cache poisoning on the same endpoint.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 id="timeline-title">Disclosure Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item"><strong>Reported:</strong> Initial discovery by e5p3ctr0x96.</div>
+            <div class="timeline-item"><strong>Triaged:</strong> @Mars staff changed status to Retesting.</div>
+            <div class="timeline-item"><strong>Confirmed:</strong> _h1_analyst confirmed the fix works.</div>
+            <div class="timeline-item"><strong>Resolved:</strong> Status changed to Resolved.</div>
+            <div class="timeline-item"><strong>Disclosed:</strong> Sept 18, 2024 - Request for public disclosure agreed.</div>
+        </div>
+    </div>
+
+    <div class="download-zone">
+        <p id="download-text">Download the full evidence package (Images, Videos, Raw Logs)</p>
+        <a href="artifacts.zip" class="download-btn">
+            <span>Download Artifacts .ZIP</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    const translations = {
+        en: {
+            title: "Cache Poisoning via Formaction",
+            summaryTitle: "Summary",
+            summary: "I do not remember the exact endpoint subdomain host, but you can always watch the video and analyze it manually. By issuing a GET request with a modified formaction parameter, attackers can inject malicious JavaScript code to obtain user data.",
+            stepsTitle: "Steps To Reproduce",
+            steps: "<p>1. Issue a GET request to the target URL.</p><p>2. You should see a Pop-up containing the current session cookies.</p>",
+            cloaking: "Note on cloaking: The payload is hidden within request headers to poison the cache, then exploited via a normal URL.",
+            impactTitle: "Impact",
+            impact: "Attackers can make use of this technique to send the link to victims and steal their session. I believe there is a higher impact due to cache poisoning on the same endpoint.",
+            timelineTitle: "Disclosure Timeline",
+            download: "Download the full evidence package (Images, Videos, Raw Logs)",
+            btn: "Download Artifacts .ZIP"
+        },
+        pt: {
+            title: "Envenenamento de Cache via Formaction",
+            summaryTitle: "Resumo",
+            summary: "Não me lembro do host exato do subdomínio, mas você pode assistir ao vídeo e analisar manualmente. Ao emitir uma solicitação GET com o parâmetro formaction modificado, atacantes podem injetar código JavaScript malicioso para obter dados do usuário.",
+            stepsTitle: "Passos para Reproduzir",
+            steps: "<p>1. Emita uma solicitação GET para a URL alvo.</p><p>2. Você deve ver um Pop-up contendo os cookies da sessão atual.</p>",
+            cloaking: "Nota sobre camuflagem: O payload é escondido nos cabeçalhos da requisição para envenenar o cache, e então explorado via uma URL normal. Para os Brasileiros segue a dica mais esbelta de vossa interação, o tal do Jump the Cat(termo.canonizado_por:OFJAAAH{'''Jump the Cat''',agradeço tuas ajudas Sr. Soldier of JAAAH, seu trabalho é deveras irado! 🪖🫡🦁,}), o segredo para evadir um pouco mais é você envenenar o cache por hia de Headers e nao URL parameters, pense bem, O termo formaction refere-se a um atributo HTML, não a um campo de cabeçalho HTTP e, portanto, não possui sua própria especificação dedicada de Request for Comments (RFC) para um cabeçalho HTTP, o que ajuda e muito se o atacante for capaz de circunvir as vias regulares, utilizando-o como principal vetor de ataque e ofuscador. Para ter umas ideias diferentes, me recordo do Cadu (Crowsec) e suas analises aprofundadas de documentos oficiais para obtenção de insight, em analise post-morten, identifiquei aspector interessantes na RFC 3986: Uniform Resource Identifier (URI): Generic Syntaxn que auxiliam na visao geral de diferentes variações e/ou combinações de ataques ja existentes.",
+            impactTitle: "Impacto",
+            impact: "Atacantes podem usar essa técnica para enviar o link às vítimas e roubar suas sessões. Acredito que haja um impacto maior devido ao envenenamento de cache no mesmo endpoint.",
+            timelineTitle: "Linha do Tempo de Divulgação",
+            download: "Baixe o pacote completo de evidências (Imagens, Vídeos, Logs)",
+            btn: "Baixar Artefatos .ZIP"
+        },
+        es: {
+            title: "Envenenamiento de Caché vía Formaction",
+            summaryTitle: "Resumen",
+            summary: "No recuerdo el host exacto del subdominio, pero puedes ver el video y analizarlo manualmente. Al emitir una solicitud GET con el parámetro formaction modificado, los atacantes pueden inyectar código JavaScript malicioso para obtener datos del usuario.",
+            stepsTitle: "Pasos para Reproducir",
+            steps: "<p>1. Emita una solicitud GET a la URL objetivo.</p><p>2. Debería ver una ventana emergente con las cookies de sesión actuales.</p>",
+            cloaking: "Nota sobre ocultamiento: El payload se oculta en los encabezados de la solicitud para envenenar la caché, y luego se explota a través de una URL normal.",
+            impactTitle: "Impacto",
+            impact: "Los atacantes pueden utilizar esta técnica para enviar el enlace a las víctimas y robar su sesión. Creo que hay un impacto mayor debido al envenenamiento de la caché en el mismo endpoint.",
+            timelineTitle: "Línea de Tiempo de Divulgación",
+            download: "Descargar el paquete completo de evidencia (Imágenes, Videos, Logs)",
+            btn: "Descargar Artefactos .ZIP"
+        }
+    };
+
+    function setLang(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('btn-' + lang).classList.add('active');
+
+        const t = translations[lang];
+        document.getElementById('title-text').innerText = t.title;
+        document.getElementById('summary-title').innerText = t.summaryTitle;
+        document.getElementById('summary-text').innerText = t.summary;
+        document.getElementById('steps-title').innerText = t.stepsTitle;
+        document.getElementById('steps-text').innerHTML = t.steps;
+        document.getElementById('cloaking-text').innerText = t.cloaking;
+        document.getElementById('impact-title').innerText = t.impactTitle;
+        document.getElementById('impact-text').innerText = t.impact;
+        document.getElementById('timeline-title').innerText = t.timelineTitle;
+        document.getElementById('download-text').innerText = t.download;
+        document.querySelector('.download-btn span').innerText = t.btn;
+    }
+</script>
+</body>
+</html>
